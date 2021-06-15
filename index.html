@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="container-fluid" id="container">
+      <div class="page">
+        <div class="header">
+          <h1>Tick (&#10003;) the foods that are good for you then say</h1>
+          <audio src="./assets/correct_answer.mp3" id="correct"></audio>
+          <audio src="./assets/wrong_answer.mp3" id="wrong"></audio>
+        </div>
+        <div class="content">
+          <div
+            id="carouselExampleControls"
+            class="carousel slide"
+            data-bs-ride=""
+          >
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img
+                  src="./assets/yellowBackground.png"
+                  class="d-block w-100"
+                  alt="..."
+                />
+                <div class="questions">
+                  <div class="top">
+                    <div class="question1">
+                      <img src="./assets/salad.png" alt="" />
+                      <div class="dropdownMenu1">
+                        <div class="selectedItems">
+                          <div class="correct">&#10003</div>
+                          <div class="wrong">x</div>
+                        </div>
+                        <div class="select"></div>
+                      </div>
+                    </div>
+                    <div class="question2">
+                      <img src="./assets/sweet.png" alt="" />
+                      <div class="dropdownMenu2">
+                        <div class="selectedItems">
+                          <div class="correct">&#10003</div>
+                          <div class="wrong">x</div>
+                        </div>
+                        <div class="select"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="bottom">
+                    <div class="question3">
+                      <img src="./assets/cheese.png" alt="" />
+                      <div class="dropdownMenu3">
+                        <div class="selectedItems">
+                          <div class="correct">&#10003</div>
+                          <div class="wrong">x</div>
+                        </div>
+                        <div class="select"></div>
+                      </div>
+                    </div>
+                    <div class="question4">
+                      <img src="./assets/meat.png" alt="" />
+                      <div class="dropdownMenu4">
+                        <div class="selectedItems">
+                          <div class="correct">&#10003</div>
+                          <div class="wrong">x</div>
+                        </div>
+                        <div class="select"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img
+                  src="./assets/yellowBackground.png"
+                  class="d-block w-100"
+                  alt="..."
+                />
+              </div>
+            </div>
+            <button
+              class="carousel-control-prev"
+              type="button"
+              data-bs-target="#carouselExampleControls"
+              data-bs-slide="prev"
+            >
+              <span
+                class="carousel-control-prev-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button
+              class="carousel-control-next"
+              type="button"
+              data-bs-target="#carouselExampleControls"
+              data-bs-slide="next"
+            >
+              <span
+                class="carousel-control-next-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+      crossorigin="anonymous"
+    ></script>
+    <script type="text/javascript" src="index.js"></script>
+  </body>
+</html>

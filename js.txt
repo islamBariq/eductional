@@ -1,0 +1,13 @@
+window.onresize = () => {
+  let div = document.getElementById('page');
+  let divHeight = div.offsetHeight;
+  let divWidth = div.offsetWidth;
+  let availableHeight = window.innerHeight;
+  let availableWidth = window.innerWidth;
+  let scale =Math.min(availableWidth/divWidth, availableHeight/divHeight)
+
+  console.log(scale);
+  div.style.transform = "scale(" + scale +")"
+};
+
+
