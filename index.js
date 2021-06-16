@@ -182,19 +182,15 @@ function checkShowStatus() {
 
 function resetValue() {
   if (index === 1) {
-
-
     firstPageQuestions.forEach((question) => {
       let select = question.lastElementChild.lastElementChild;
       select.parentElement.parentElement.style.opacity = 1;
       select.classList.remove('correctAnswer');
       select.textContent = '';
       pageOneShowed = false;
-      checkShowStatus()
-
-
+      checkShowStatus();
     });
-  } else if(index === 2){
+  } else if (index === 2) {
     secondPageQuestions.forEach((question) => {
       let select = question.lastElementChild.lastElementChild;
       select.parentElement.parentElement.style.opacity = 1;
@@ -203,15 +199,11 @@ function resetValue() {
       select.textContent = '';
       pageTwoShowed = false;
     });
-    checkShowStatus()
-
+    checkShowStatus();
   }
-
 }
 
 unCheck.onclick = () => {
-
-
   resetValue();
 };
 
