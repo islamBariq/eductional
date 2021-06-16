@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
 
-    <title>Document</title>
+    <title>educational RC</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -17,20 +17,26 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
     />
     <link rel="stylesheet" href="./style.css" />
+    
   </head>
   <body>
+
+    <div class="loader">
+      <img src="./assets/loading.gif" alt="loading ...">
+    </div>
     <div class="container-fluid" id="container">
       <div class="page">
         <div class="header">
           <h1>Tick (&#10003;) the foods that are good for you then say</h1>
           <audio src="./assets/correct_answer.mp3" id="correct"></audio>
-          <audio src="./assets/wrong_answer.mp3" id="wrong"></audio>
+          <audio src="./assets/wrong.mp3" id="wrong"></audio>
         </div>
         <div class="content">
           <div
             id="carouselExampleControls"
             class="carousel slide"
-            data-bs-ride=""
+            data-bs-ride="carousel"
+            data-bs-interval="false"
           >
             <div class="carousel-inner">
               <div class="carousel-item active">
@@ -38,49 +44,60 @@
                   src="./assets/yellowBackground.png"
                   class="d-block w-100"
                   alt="..."
+                  id="background"
                 />
-                <div class="questions">
-                  <div class="top">
-                    <div class="question1">
-                      <img src="./assets/salad.png" alt="" />
-                      <div class="dropdownMenu1">
-                        <div class="selectedItems">
-                          <div class="correct">&#10003</div>
-                          <div class="wrong">x</div>
+                <div class="page1">
+                  <div class="questions">
+                    <div class="top">
+                      <div class="question1" data-choose="correct">
+                        <img src="./assets/salad.png" alt="" />
+                        <div class="dropdownMenu1">
+                          <div class="selectedItems">
+                            <div class="correct" data-choose="correct">
+                              &#10003;
+                            </div>
+                            <div class="wrong" data-choose="wrong">x</div>
+                          </div>
+                          <div class="select"></div>
                         </div>
-                        <div class="select"></div>
+                      </div>
+                      <div class="question2" data-choose="wrong">
+                        <img src="./assets/sweet.png" alt="" />
+                        <div class="dropdownMenu2">
+                          <div class="selectedItems">
+                            <div class="correct" data-choose="correct">
+                              &#10003;
+                            </div>
+                            <div class="wrong" data-choose="wrong">x</div>
+                          </div>
+                          <div class="select"></div>
+                        </div>
                       </div>
                     </div>
-                    <div class="question2">
-                      <img src="./assets/sweet.png" alt="" />
-                      <div class="dropdownMenu2">
-                        <div class="selectedItems">
-                          <div class="correct">&#10003</div>
-                          <div class="wrong">x</div>
+                    <div class="bottom">
+                      <div class="question3" data-choose="correct">
+                        <img src="./assets/cheese.png" alt="" />
+                        <div class="dropdownMenu3">
+                          <div class="selectedItems">
+                            <div class="correct" data-choose="correct">
+                              &#10003;
+                            </div>
+                            <div class="wrong" data-choose="wrong">x</div>
+                          </div>
+                          <div class="select"></div>
                         </div>
-                        <div class="select"></div>
                       </div>
-                    </div>
-                  </div>
-                  <div class="bottom">
-                    <div class="question3">
-                      <img src="./assets/cheese.png" alt="" />
-                      <div class="dropdownMenu3">
-                        <div class="selectedItems">
-                          <div class="correct">&#10003</div>
-                          <div class="wrong">x</div>
+                      <div class="question4" data-choose="correct">
+                        <img src="./assets/meat.png" alt="" />
+                        <div class="dropdownMenu4">
+                          <div class="selectedItems">
+                            <div class="correct" data-choose="correct">
+                              &#10003;
+                            </div>
+                            <div class="wrong" data-choose="wrong">x</div>
+                          </div>
+                          <div class="select"></div>
                         </div>
-                        <div class="select"></div>
-                      </div>
-                    </div>
-                    <div class="question4">
-                      <img src="./assets/meat.png" alt="" />
-                      <div class="dropdownMenu4">
-                        <div class="selectedItems">
-                          <div class="correct">&#10003</div>
-                          <div class="wrong">x</div>
-                        </div>
-                        <div class="select"></div>
                       </div>
                     </div>
                   </div>
@@ -91,33 +108,99 @@
                   src="./assets/yellowBackground.png"
                   class="d-block w-100"
                   alt="..."
+                  id="background2"
                 />
+                <div class="page2">
+                  <div class="questions">
+                    <div class="top">
+                      <div class="question1" data-choose="correct">
+                        <img src="./assets/zabady.png" alt="" />
+                        <div class="dropdownMenu1">
+                          <div class="selectedItems">
+                            <div class="correct" data-choose="correct">
+                              &#10003;
+                            </div>
+                            <div class="wrong" data-choose="wrong">x</div>
+                          </div>
+                          <div class="select"></div>
+                        </div>
+                      </div>
+                      <div class="question2" data-choose="wrong">
+                        <img src="./assets/chocolate.png" alt="" />
+                        <div class="dropdownMenu2">
+                          <div class="selectedItems">
+                            <div class="correct" data-choose="correct">
+                              &#10003;
+                            </div>
+                            <div class="wrong" data-choose="wrong">x</div>
+                          </div>
+                          <div class="select"></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="bottom">
+                      <div class="question3" data-choose="wrong">
+                        <img src="./assets/honey.png" alt="" />
+                        <div class="dropdownMenu3">
+                          <div class="selectedItems">
+                            <div class="correct" data-choose="correct">
+                              &#10003;
+                            </div>
+                            <div class="wrong" data-choose="wrong">x</div>
+                          </div>
+                          <div class="select"></div>
+                        </div>
+                      </div>
+                      <div class="question4" data-choose="correct">
+                        <img src="./assets/fruits.png" alt="" />
+                        <div class="dropdownMenu4">
+                          <div class="selectedItems">
+                            <div class="correct" data-choose="correct">
+                              &#10003;
+                            </div>
+                            <div class="wrong" data-choose="wrong">x</div>
+                          </div>
+                          <div class="select"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
-            <button
-              class="carousel-control-prev"
-              type="button"
+          </div>
+        </div>
+        <!-- start the footer -->
+        <div class="footer">
+          <div class="reload">
+            <img src="./assets/reload.png" alt="reload" id="reload" />
+          </div>
+          <div class="left">
+            <a role="button">
+              <img src="./assets/uncheck.png" alt="" id="uncheck" />
+            </a>
+            <a role="button">
+              <img src="./assets/show.png" alt="" id="show" />
+            </a>
+            <a
+              role="button"
               data-bs-target="#carouselExampleControls"
               data-bs-slide="prev"
+              id="prev"
             >
-              <span
-                class="carousel-control-prev-icon"
-                aria-hidden="true"
-              ></span>
-              <span class="visually-hidden">Previous</span>
-            </button>
-            <button
-              class="carousel-control-next"
-              type="button"
+              <img src="./assets/prev.png" alt="" />
+            </a>
+
+            <div class="box" id="box">1 of 2</div>
+
+            <a
+              role="button"
               data-bs-target="#carouselExampleControls"
               data-bs-slide="next"
+              id="next"
             >
-              <span
-                class="carousel-control-next-icon"
-                aria-hidden="true"
-              ></span>
-              <span class="visually-hidden">Next</span>
-            </button>
+              <img src="./assets/next.png" alt="" />
+            </a>
           </div>
         </div>
       </div>
@@ -127,6 +210,6 @@
       integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
       crossorigin="anonymous"
     ></script>
-    <script type="text/javascript" src="index.js"></script>
+    <script src="index.js"></script>
   </body>
 </html>
