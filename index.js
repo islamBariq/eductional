@@ -182,15 +182,19 @@ function checkShowStatus() {
 
 function resetValue() {
   if (index === 1) {
-    pageOneShowed = false;
+
+
     firstPageQuestions.forEach((question) => {
       let select = question.lastElementChild.lastElementChild;
       select.parentElement.parentElement.style.opacity = 1;
       select.classList.remove('correctAnswer');
       select.textContent = '';
+      pageOneShowed = false;
+      checkShowStatus()
+
+
     });
-  } else {
-    pageTwoShowed = false;
+  } else if(index === 2){
     secondPageQuestions.forEach((question) => {
       let select = question.lastElementChild.lastElementChild;
       select.parentElement.parentElement.style.opacity = 1;
@@ -199,13 +203,14 @@ function resetValue() {
       select.textContent = '';
       pageTwoShowed = false;
     });
+    checkShowStatus()
+
   }
+
 }
 
 unCheck.onclick = () => {
-  show.classList.remove('disabled');
-  pageOneShowed = false;
-  pageTwoShowed = false;
+
 
   resetValue();
 };
