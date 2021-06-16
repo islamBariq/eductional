@@ -66,6 +66,8 @@ function wrongClicked() {
         select.textContent = 'X';
         select.classList.add('correctAnswer');
         correctedAudio.play();
+        select.parentNode.parentNode.style.opacity = 0.6;
+
         return;
       }
       wrongAudio.play();
@@ -144,8 +146,11 @@ function showCorrectAnswers(question) {
 
   if (question.dataset.choose === 'wrong') {
     select.textContent = 'X';
+
+    question.style.opacity = 0.6;
   } else {
     select.textContent = '✓';
+    question.style.opacity = 0.6;
   }
 }
 
@@ -153,12 +158,15 @@ function resetValue() {
   if (index === 1) {
     firstPageQuestions.forEach((question) => {
       let select = question.lastElementChild.lastElementChild;
+      select.parentElement.parentElement.style.opacity = 1;
       select.classList.remove('correctAnswer');
       select.textContent = '';
     });
   } else {
     secondPageQuestions.forEach((question) => {
       let select = question.lastElementChild.lastElementChild;
+      select.parentElement.parentElement.style.opacity = 1;
+
       select.classList.remove('correctAnswer');
       select.textContent = '';
     });
@@ -172,11 +180,15 @@ unCheck.onclick = () => {
 reload.onclick = () => {
   firstPageQuestions.forEach((question) => {
     let select = question.lastElementChild.lastElementChild;
+    select.parentElement.parentElement.style.opacity = 1;
+
     select.classList.remove('correctAnswer');
     select.textContent = '';
   });
   secondPageQuestions.forEach((question) => {
     let select = question.lastElementChild.lastElementChild;
+    select.parentElement.parentElement.style.opacity = 1;
+
     select.classList.remove('correctAnswer');
     select.textContent = '';
   });
