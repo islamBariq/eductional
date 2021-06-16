@@ -1,6 +1,8 @@
 let selectArray = document.querySelectorAll('.select');
 let correctArray = document.querySelectorAll('.correct');
 let wrongArray = document.querySelectorAll('.wrong');
+let pageOneShowed = false;
+let pageTwoShowed = false;
 
 let correctedAudio = document.getElementById('correct');
 let wrongAudio = document.getElementById('wrong');
@@ -120,11 +122,15 @@ next.onclick = () => {
   index++;
   box.textContent = '2 of 2';
   checkIndex();
+  checkShowStatus();
 };
 prev.onclick = () => {
+  checkShowStatus();
   index--;
+
   box.textContent = '1 of 2';
   checkIndex();
+  checkShowStatus();
 };
 show.onclick = () => {
   if (index === 1) {
@@ -142,8 +148,13 @@ show.onclick = () => {
 
 function showCorrectAnswers(question) {
   let select = question.lastElementChild.lastElementChild;
+  checkShowStatus();
   select.classList.add('correctAnswer');
-
+  if (index === 1) {
+    pageOneShowed = true;
+  } else {
+    pageTwoShowed = true;
+  }
   if (question.dataset.choose === 'wrong') {
     select.textContent = 'X';
 
@@ -153,9 +164,25 @@ function showCorrectAnswers(question) {
     question.style.opacity = 0.6;
   }
 }
+function checkShowStatus() {
+  if (index === 1) {
+    if (pageOneShowed) {
+      show.classList.add('disabled');
+    } else {
+      show.classList = '';
+    }
+  } else if (index === 2) {
+    if (pageTwoShowed) {
+      show.classList.add('disabled');
+    } else {
+      show.classList = '';
+    }
+  }
+}
 
 function resetValue() {
   if (index === 1) {
+    pageOneShowed = false;
     firstPageQuestions.forEach((question) => {
       let select = question.lastElementChild.lastElementChild;
       select.parentElement.parentElement.style.opacity = 1;
@@ -163,17 +190,23 @@ function resetValue() {
       select.textContent = '';
     });
   } else {
+    pageTwoShowed = false;
     secondPageQuestions.forEach((question) => {
       let select = question.lastElementChild.lastElementChild;
       select.parentElement.parentElement.style.opacity = 1;
 
       select.classList.remove('correctAnswer');
       select.textContent = '';
+      pageTwoShowed = false;
     });
   }
 }
 
 unCheck.onclick = () => {
+  show.classList.remove('disabled');
+  pageOneShowed = false;
+  pageTwoShowed = false;
+
   resetValue();
 };
 
@@ -192,6 +225,9 @@ reload.onclick = () => {
     select.classList.remove('correctAnswer');
     select.textContent = '';
   });
+  pageTwoShowed = false;
+  pageOneShowed = false;
+  checkShowStatus();
 };
 
 window.addEventListener('load', () => {
